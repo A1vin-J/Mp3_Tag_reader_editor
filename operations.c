@@ -8,6 +8,19 @@ int arguments_check(int argc, char *argv[])
         print_error();
         return 0;
     }
+    else if(argc == 2)       //Help
+    {
+        if(strcmp(argv[1],"-h")==0) 
+        {
+            help();
+            return 0;
+        }
+        else 
+        {
+            print_error();
+            return 0;
+        }
+    }
     else if(argc == 4) 
     {
         print_error();
@@ -38,18 +51,7 @@ int arguments_check(int argc, char *argv[])
 //Doing the operation based on the inputs 
 void do_operation(int argc, char *argv[], Tag_data *meta_data)
 {
-    if(argc == 2)       //Help
-    {
-        if(strcmp(argv[1],"-h")==0) 
-        {
-            help();
-        }
-        else 
-        {
-            print_error();
-        }
-    }
-    else if(argc == 3)      //Viewing Frames
+    if(argc == 3)      //Viewing Frames
     {
         if(strcmp(argv[1],"-v")==0)
         {
